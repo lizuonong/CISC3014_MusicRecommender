@@ -51,10 +51,23 @@ python quick_start.py
 
 ### 3. 爬取真实数据
 ```bash
-python main.py --crawl
+python crawl_real_data.py
 ```
 
-### 4. 运行完整流程
+### 4. 运行完整流程（推荐）
+```bash
+python run_full_pipeline.py
+```
+
+这将自动完成：
+- 数据加载和清洗
+- 用户-物品矩阵创建
+- 推荐模型训练
+- 生成推荐结果
+- 创建可视化图表
+- 生成分析报告
+
+### 5. 运行主程序
 ```bash
 python main.py --all
 ```
@@ -72,12 +85,26 @@ python main.py --all        # 运行完整流程
 
 ### 项目文件说明
 - `main.py` - 主程序入口
-- `quick_start.py` - 快速开始脚本
+- `quick_start.py` - 快速开始脚本（模拟数据）
+- `crawl_real_data.py` - 真实数据爬虫
+- `run_full_pipeline.py` - 完整流程脚本（推荐）
 - `generate_mock_data.py` - 生成模拟数据
 - `config.py` - 配置文件
 - `src/crawler/` - 爬虫模块
 - `src/analysis/` - 推荐算法模块
 - `src/utils/` - 工具函数
+
+## 输出文件
+
+运行 `run_full_pipeline.py` 后，将在 `output/` 目录生成：
+
+- `recommendations.csv` - 推荐结果
+- `summary_report.md` - 数据分析报告
+- `data_source_distribution.png` - 数据源分布图
+- `play_count_distribution.png` - 播放量分布图
+- `top20_songs.png` - Top 20 热门歌曲
+- `rating_distribution.png` - 推荐评分分布图
+- `play_vs_comment.png` - 播放量 vs 评论数
 
 ## 提交内容
 - [ ] 项目报告 (Report)
@@ -90,5 +117,14 @@ python main.py --all        # 运行完整流程
 - 成员2: 
 
 ## 更新日志
+- 2026-11-12: 完成最终版demo
+  - 实现真实数据爬虫（QQ音乐、网易云音乐）
+  - 完整的数据处理流程
+  - 基于用户的协同过滤推荐算法
+  - 生成500条推荐结果
+  - 创建5个可视化图表
+  - 生成详细的数据分析报告
+  - 所有功能测试通过
+  
 - 2026-11-12: 初始化项目结构，实现基础爬虫和推荐算法 
 
