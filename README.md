@@ -37,6 +37,48 @@ CISC3014_project/
 - Matplotlib/Seaborn (可视化)
 - Jupyter Notebook
 
+## 快速开始
+
+### 1. 安装依赖
+```bash
+pip install -r requirements.txt
+```
+
+### 2. 运行快速测试（使用模拟数据）
+```bash
+python quick_start.py
+```
+
+### 3. 爬取真实数据
+```bash
+python main.py --crawl
+```
+
+### 4. 运行完整流程
+```bash
+python main.py --all
+```
+
+## 使用说明
+
+### 命令行参数
+```bash
+python main.py --crawl      # 运行爬虫
+python main.py --process    # 处理数据
+python main.py --train      # 训练模型
+python main.py --recommend  # 生成推荐
+python main.py --all        # 运行完整流程
+```
+
+### 项目文件说明
+- `main.py` - 主程序入口
+- `quick_start.py` - 快速开始脚本
+- `generate_mock_data.py` - 生成模拟数据
+- `config.py` - 配置文件
+- `src/crawler/` - 爬虫模块
+- `src/analysis/` - 推荐算法模块
+- `src/utils/` - 工具函数
+
 ## 提交内容
 - [ ] 项目报告 (Report)
 - [ ] 演示文稿 (PPT)
@@ -46,4 +88,7 @@ CISC3014_project/
 ## 团队成员
 - 成员1: 
 - 成员2: 
-- 成员3: 
+
+## 更新日志
+- 2026-11-12: 初始化项目结构，实现基础爬虫和推荐算法 
+
