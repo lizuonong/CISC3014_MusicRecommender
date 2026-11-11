@@ -27,12 +27,12 @@ class CollaborativeFiltering:
         训练模型
         
         Args:
-            data: DataFrame，包含 user_id, item_id, rating 列
+            data: DataFrame，包含 user_id, song_id, rating 列
         """
         # 构建用户-物品评分矩阵
         self.user_item_matrix = data.pivot_table(
             index='user_id', 
-            columns='item_id', 
+            columns='song_id', 
             values='rating'
         ).fillna(0)
         
@@ -44,13 +44,13 @@ class CollaborativeFiltering:
         
         return self
     
-    def predict(self, user_id, item_id, top_k=5):
+    def predict(self, user_id, song_id, top_k=5):
         """
         预测用户对物品的评分
         
         Args:
             user_id: 用户ID
-            item_id: 物品ID
+            song_id: 歌曲ID
             top_k: 使用最相似的k个用户/物品
             
         Returns:
@@ -63,9 +63,9 @@ class CollaborativeFiltering:
         if self.method == 'user':
             user_idx = list(self.user_item_matrix.index).index(user_id)
             similarities = self.similarity_matrix[user_idx]
-            ratings = self.user_item_matrix[item_id].values
+            ratings = self.user_item_matrix[song_id].values
         else:
-            item_idx = list(self.user_item_matrix.columns).index(item_id)
+            item_idx = list(self.user_item_matrix.columns).index(song_id)
             similarities = self.similarity_matrix[item_idx]
             ratings = self.user_item_matrix.loc[user_id].values
         
